@@ -24,6 +24,7 @@ p {
     height: 700px;
     background-color: #363232;
     margin: auto;
+    box-shadow: 20px 20px 20px;
 }
 
 .display-container {
