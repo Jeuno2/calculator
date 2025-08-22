@@ -24,23 +24,6 @@ function resetValues() {
     resultExists = false;
 }
 
-// input numbers/digits function
-// function inputNumbers() {
-//     //removes leading 0 so it's not a part of operand
-//     if(needsCleared) {
-//         para.textContent = '';
-//         para.textContent = button.textContent;
-//         needsCleared = false;
-//     }
-//     else {
-//         para.textContent += button.textContent;
-//     }
-
-//     for(let i = 0; i < operatorArray.length; i++) {
-//         operatorArray[i].disabled = false;
-//     }
-// }
-
 // backspace (back-arrow) function
 function backspace() {
     const dotToRemove = para.textContent;
@@ -94,7 +77,6 @@ function operate(oper1, oper2, operator) {
     oper2 = Number(oper2);
     resultExists = true;
     needsCleared = true;
-    // dot.disabled = true;
 
     if(operator === '+') {
         return add(oper1, oper2);
@@ -135,9 +117,7 @@ buttonArray.forEach((button) => {
         for(let i = 0; i < operatorArray.length; i++) {
             operatorArray[i].disabled = false;
         } 
-
     });
-    
 }); //end section on adding event listeners to numbers/digits
 
 // equal button section
@@ -193,16 +173,9 @@ backArrow.addEventListener('click', () => {
 const dot = document.querySelector(`#dot`);
 dot.addEventListener('click', () => {
     dot.disabled = true;
-    // if(para.textContent.includes('.')) {
-    //     dot.disabled = true;
-    //     log('happy feet');
-    // }
-    // else {
-    //     dot.enabled = false;
-    // }
-    
+
     para.textContent += dot.textContent;
-    // dot.disabled = true;
+    
     needsCleared = false;
 });
 
@@ -212,8 +185,6 @@ const operatorRegex = ['+', '-', '*', '/'];
 
 // keyboard events/listeners section
 document.addEventListener('keydown', (e) => {
-
-    log(e.key);
 
     //backspace section
     if(e.key === 'Backspace') {
@@ -254,11 +225,9 @@ document.addEventListener('keydown', (e) => {
                 operatorArray[i].disabled = false;
             }
         }
-        log(`actually here`);
     };
 
     // operators section
-    
     if(e.key === '+' || e.key === '-' || e.key === '/' || e.key === '*') {
             dot.disabled = false;
             operator = e.key;
