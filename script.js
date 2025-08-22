@@ -1,5 +1,4 @@
 // universal variable declarations
-let log = console.log;
 let operand_one = 0;
 let operand_two = 0;
 let operator = "";
@@ -24,7 +23,6 @@ function resetValues() {
     resultExists = false;
 }
 
-// backspace (back-arrow) function
 function backspace() {
     const dotToRemove = para.textContent;
     backSpace = para.textContent;
@@ -95,9 +93,8 @@ function operate(oper1, oper2, operator) {
         else {
             return divide(oper1, oper2);
         }
-    }
-    
-} //end function operate
+    }   
+}
 
 // number buttons
 const buttonArray = document.querySelectorAll('.btn-digit');
@@ -164,6 +161,7 @@ clearBtn.addEventListener('click', () => {
     resetValues();
 });
 
+// back-arrow/backspace section
 const backArrow = document.querySelector('#back-arrow');
 backArrow.addEventListener('click', () => {
     backspace();
@@ -196,6 +194,7 @@ document.addEventListener('keydown', (e) => {
         resetValues();
     }
 
+    // dot section
     if(e.key === '.') {
         if(para.textContent.includes('.')) {
             e.preventDefault();
